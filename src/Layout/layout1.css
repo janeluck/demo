@@ -1,0 +1,9 @@
+.demo-layout1 .parent {
+    overflow: hidden;
+    border: 1px solid cyan;
+}
+
+.demo-layout1 .img {
+    float: left;
+    width: 200px;
+}
