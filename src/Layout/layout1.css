@@ -1,4 +1,4 @@
-.demo-layout1 .parent {
+.demo-layout1 .div1 {
     overflow: hidden;
     border: 1px solid cyan;
 }
@@ -6,4 +6,15 @@
 .demo-layout1 .img {
     float: left;
     width: 200px;
+}
+
+.demo-layout1 .div2 {
+    border: 1px solid orange;
+}
+
+.demo-layout1 .div2::after {
+    clear: both;
+    display: block;
+    content: '';
+
 }
