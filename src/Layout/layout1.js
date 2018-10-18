@@ -22,7 +22,7 @@ export default class Layout1 extends React.PureComponent {
         </div>
 
 
-        <p>浮动实现的“文字环绕图片效果”</p>
+        <p>浮动实现的“文字环绕图片效果”，未清除浮动：</p>
           <div >
 
         <img src={image} alt="unnatural" className="img" />
