@@ -1,0 +1,43 @@
+.InputButtonPanel-Wrap {
+  overflow: hidden;
+  font-size: 16px;
+  color: #333;
+  width: 294px;
+  background: rgba(219, 224, 229, 0.5);
+  border-radius: 8px;
+  padding: 16px 16px 8px 16px;
+}
+.InputButtonPanel-Number {
+  float: left;
+}
+.InputButtonPanel-Cell {
+  width: 60px;
+  height: 60px;
+  margin: 0 8px 8px 0;
+  float: left;
+}
+
+.InputButtonPanel-Cell button {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: #fff;
+  box-shadow: inset 0 -2px 0 0 rgba(173, 180, 188, 0.6);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #505766;
+}
+
+.InputButtonPanel-Cell button:hover {
+  background: #dcdde0;
+}
+.InputButtonPanel-Cell button:active {
+  background: #b9bcc2;
+  box-shadow: inset 0 -2px 0 0 #888d98;
+}
+
+.InputButtonPanel-Operator {
+  float: left;
+  width: 60px;
+}

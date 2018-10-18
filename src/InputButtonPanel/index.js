@@ -1,18 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import _ from "lodash";
+import "./index.css";
 
 function isEmpty(v) {
   return v === "0" || !v;
 }
-class SvgIcon extends React.Component {
+class SvgIcon extends PureComponent {
   render() {
     return <div>svgicon</div>;
   }
 }
 
-class InnerButton extends React.Component {
+class InnerButton extends Component {
   static propTypes = {
     type: PropTypes.string,
     onMouseDown: PropTypes.func,
@@ -132,159 +133,155 @@ export default class InputButtonPanel extends Component {
   render() {
     const { showOk } = this.props;
     return (
-      <div>
-        <div
-          ref={wrap => (this.wrap = wrap)}
-          className="InputButtonPanelWrap clearfix"
-          onMouseDown={function(event) {
-            event.preventDefault();
-          }}>
-          <div className="num">
-            <div className="InputButtonPanel-row">
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="1">
-                  1
-                </InnerButton>
-              </div>
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="2">
-                  2
-                </InnerButton>
-              </div>
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="3">
-                  3
-                </InnerButton>
-              </div>
+      <div
+        ref={wrap => (this.wrap = wrap)}
+        className="InputButtonPanel-Wrap"
+        onMouseDown={function(event) {
+          event.preventDefault();
+        }}>
+        <div className="InputButtonPanel-Number">
+          <div className="InputButtonPanel-Row">
+            <div className="InputButtonPanel-Cell">
+              <InnerButton  onMouseDown={this.handleMouseDown} type="1">
+                1
+              </InnerButton>
             </div>
-            <div className="InputButtonPanel-row">
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="4">
-                  4
-                </InnerButton>
-              </div>
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="5">
-                  5
-                </InnerButton>
-              </div>
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="6">
-                  6
-                </InnerButton>
-              </div>
-            </div>
-            <div className="InputButtonPanel-row">
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="7">
-                  7
-                </InnerButton>
-              </div>
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="8">
-                  8
-                </InnerButton>
-              </div>
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="9">
-                  9
-                </InnerButton>
-              </div>
-            </div>
-            <div className="InputButtonPanel-row">
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="0">
-                  0
-                </InnerButton>
-              </div>
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type="00">
-                  00
-                </InnerButton>
-              </div>
-              <div className="InputButtonPanel-cell">
-                <InnerButton onMouseDown={this.handleMouseDown} type=".">
-                  .
-                </InnerButton>
-              </div>
-            </div>
-          </div>
 
-          <div
-            className={classnames("del", {
-              "InputButtonPanel-hasSure": showOk
-            })}>
-            <div>
-              <InnerButton
-                className="InputButtonPanel-button-back"
-                onMouseDown={this.handleMouseDown}
-                type="back">
-                <SvgIcon type="shanchu1" />
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type="2">
+                2
               </InnerButton>
             </div>
-            <div>
-              <InnerButton
-                className="InputButtonPanel-button-clear"
-                onMouseDown={this.handleMouseDown}
-                type="clear">
-                <SvgIcon type="quanbushanchu" />
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type="3">
+                3
               </InnerButton>
             </div>
-            {showOk && (
-              <div className="InputButtonPanel-button-sure">
-                <InnerButton onMouseDown={this.handleOkDown} type="sure">
-                  确定
-                </InnerButton>
-              </div>
-            )}
           </div>
+          <div className="InputButtonPanel-Row">
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type="4">
+                4
+              </InnerButton>
+            </div>
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type="5">
+                5
+              </InnerButton>
+            </div>
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type="6">
+                6
+              </InnerButton>
+            </div>
+          </div>
+          <div className="InputButtonPanel-Row">
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type="7">
+                7
+              </InnerButton>
+            </div>
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type="8">
+                8
+              </InnerButton>
+            </div>
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type="9">
+                9
+              </InnerButton>
+            </div>
+          </div>
+          <div className="InputButtonPanel-Row">
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type="0">
+                0
+              </InnerButton>
+            </div>
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type="00">
+                00
+              </InnerButton>
+            </div>
+            <div className="InputButtonPanel-Cell">
+              <InnerButton onMouseDown={this.handleMouseDown} type=".">
+                .
+              </InnerButton>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={classnames("InputButtonPanel-Operator", {
+            "InputButtonPanel-hasSure": showOk
+          })}>
+          <div>
+            <InnerButton
+              className="InputButtonPanel-Back"
+              onMouseDown={this.handleMouseDown}
+              type="back">
+              <SvgIcon type="shanchu1" />
+            </InnerButton>
+          </div>
+          <div>
+            <InnerButton
+              className="InputButtonPanel-Clear"
+              onMouseDown={this.handleMouseDown}
+              type="clear">
+              <SvgIcon type="quanbushanchu" />
+            </InnerButton>
+          </div>
+          {showOk && (
+            <div className="InputButtonPanel-Sure">
+              <InnerButton onMouseDown={this.handleOkDown} type="sure">
+                确定
+              </InnerButton>
+            </div>
+          )}
         </div>
       </div>
     );
   }
 }
 
-
-
-
 // 使用实例
 export class InputButtonPanelExample extends Component {
-
-    constructor(props) {
-      super(props)
-      this.state = {
-        value: 0
-      }
-  
-    }
-  
-    onChange = (v) => {
-      this.setState({value: v})
-    }
-    handleChange = (e) => {
-      const value = e.target.value
-      this.setState({
-        value
-      })
-    }
-    onOk = (v) => {
-      console.log(v)
-    }
-  
-  
-    render() {
-  
-      const value = this.state.value
-      return (<div>
-  
-        <input type="text" value={value} onChange={this.handleChange}/>
-        <InputButtonPanel value={this.props.value} onChange={this.onChange} showOk onOk={this.onOk}>
-  
-          <div><span>当前积分：</span><span>{value}</span></div>
-  
-        </InputButtonPanel>
-  
-      </div>)
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
   }
-  
+
+  onChange = v => {
+    this.setState({ value: v });
+  };
+  handleChange = e => {
+    const value = e.target.value;
+    this.setState({
+      value
+    });
+  };
+  onOk = v => {
+    console.log(v);
+  };
+
+  render() {
+    const value = this.state.value;
+    return (
+      <div>
+        <input type="text" value={value} onChange={this.handleChange} />
+        <InputButtonPanel
+          value={this.props.value}
+          onChange={this.onChange}
+          showOk
+          onOk={this.onOk}>
+          <div>
+            <span>当前积分：</span>
+            <span>{value}</span>
+          </div>
+        </InputButtonPanel>
+      </div>
+    );
+  }
+}
