@@ -1,0 +1,26 @@
+.demo-layout3 .div1 {
+    border: 1px solid cyan;
+}
+
+
+.demo-layout3 .div1 div{
+    float: left;
+    padding: 0 100px;
+    border: 1px solid orange;
+}
+.demo-layout3 .float1{
+    position: relative;
+    margin-left: 20px;
+}
+
+
+.demo-layout3 .div2 {
+    border: 1px solid cyan;
+}
+
+
+.demo-layout3 .div2 div{
+    position: relative;
+    padding: 0 100px;
+    border: 1px solid pink;
+}
