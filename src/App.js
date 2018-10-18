@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Layout1 from './Layout/layout3'
-
+import InputButtonPanelExample from './InputButtonPanel'
 
 class App extends Component {
   render() {
@@ -10,8 +10,7 @@ class App extends Component {
          menu
        </div>
        <div>
-         content
-         <Layout1 />
+       <InputButtonPanelExample />
        </div>
       </div>
     );
