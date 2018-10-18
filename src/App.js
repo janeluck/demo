@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Layout1 from './Layout/layout1'
+import Layout1 from './Layout/layout3'
 
 
 class App extends Component {
