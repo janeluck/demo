@@ -274,8 +274,9 @@ export class InputButtonPanelExample extends Component {
         <InputButtonPanel
           value={this.props.value}
           onChange={this.onChange}
-          showOk
-          onOk={this.onOk}>
+          //showOk
+          //onOk={this.onOk}
+          >
           <div>
             <span>当前积分：</span>
             <span>{value}</span>
