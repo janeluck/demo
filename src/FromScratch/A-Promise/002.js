@@ -1,3 +1,4 @@
+// 基本状态转换
 // 添加链式调用
 
 class APromise {
@@ -9,7 +10,10 @@ class APromise {
     this.value = undefined;
     this.do_resolve = this.do_resolve.bind(this);
     this.do_reject = this.do_reject.bind(this);
+    
     fn(this.do_resolve, this.do_reject);
+
+
   }
 
   static resolve(data) {
