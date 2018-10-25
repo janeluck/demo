@@ -229,11 +229,11 @@ export class InputButtonPanelExample extends Component {
     const value = this.state.value;
     return (
       <div>
-        <input type="text" value={value} onChange={this.handleChange} />
+        <input type="text" value={value} onChange={this.handleChange} autoFocus/>
         <InputButtonPanel
           value={this.props.value}
           onChange={this.onChange}
-          showOk
+          //showOk
           //onOk={this.onOk}
         >
           <div>
