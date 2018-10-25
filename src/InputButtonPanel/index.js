@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import classnames from "classnames";
 import _ from "lodash";
 import SvgIcon from "../SvgIcon";
-import { identityFn } from "../Utils";
 import "./index.css";
 
 function isEmpty(v) {
@@ -17,7 +16,7 @@ class InnerButton extends PureComponent {
     className: PropTypes.string
   };
   static defaultProps = {
-    onMouseDown: identityFn
+    onMouseDown: _.identity
   };
 
   onMouseDown = event => {
@@ -48,9 +47,9 @@ export default class InputButtonPanel extends Component {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   };
   static defaultProps = {
-    onChange: identityFn,
+    onChange: _.identity,
     showOk: false,
-    onOk: identityFn,
+    onOk: _.identity,
     value: ""
   };
 
