@@ -2,16 +2,13 @@ import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import _ from "lodash";
+import SvgIcon from '../SvgIcon'
 import "./index.css";
 
 function isEmpty(v) {
   return v === "0" || !v;
 }
-class SvgIcon extends PureComponent {
-  render() {
-    return <div>svgicon</div>;
-  }
-}
+
 
 class InnerButton extends Component {
   static propTypes = {
@@ -220,7 +217,7 @@ export default class InputButtonPanel extends Component {
               className="InputButtonPanel-Back"
               onMouseDown={this.handleMouseDown}
               type="back">
-              <SvgIcon type="shanchu1" />
+              <SvgIcon type="deleteone" />
             </InnerButton>
           </div>
           <div>
@@ -228,7 +225,7 @@ export default class InputButtonPanel extends Component {
               className="InputButtonPanel-Clear"
               onMouseDown={this.handleMouseDown}
               type="clear">
-              <SvgIcon type="quanbushanchu" />
+              <SvgIcon type="deleteall" />
             </InnerButton>
           </div>
           {showOk && (

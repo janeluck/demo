@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Layout1 from './Layout/layout3'
 import {InputButtonPanelExample} from './InputButtonPanel'
-
+require('./uploads/alimama.svg.js')
 class App extends Component {
   render() {
     return (
