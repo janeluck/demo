@@ -2,22 +2,22 @@ import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import _ from "lodash";
-import SvgIcon from '../SvgIcon'
+import SvgIcon from "../SvgIcon";
+import { identityFn } from "../Utils";
 import "./index.css";
 
 function isEmpty(v) {
   return v === "0" || !v;
 }
 
-
-class InnerButton extends Component {
+class InnerButton extends PureComponent {
   static propTypes = {
     type: PropTypes.string,
     onMouseDown: PropTypes.func,
     className: PropTypes.string
   };
   static defaultProps = {
-    onMouseDown: function(value) {}
+    onMouseDown: identityFn
   };
 
   onMouseDown = event => {
@@ -44,17 +44,19 @@ export default class InputButtonPanel extends Component {
     // 是否展示确定按钮
     showOk: PropTypes.bool,
     // 点击确定的交互事件
-    onOk: PropTypes.func
+    onOk: PropTypes.func,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   };
   static defaultProps = {
-    onChange: function(value) {
-      console.log(value);
-    },
+    onChange: identityFn,
     showOk: false,
-    onOk: function(value) {
-      console.log(value);
-    }
+    onOk: identityFn,
+    value: ""
   };
+
+  shouldComponentUpdate(nextProps) {
+    return this.props.showOk !== nextProps.showOk;
+  }
 
   getResultString = (originStr = "", start = 0, end = 0, str = "") => {
     // 回退键特殊处理
@@ -127,6 +129,34 @@ export default class InputButtonPanel extends Component {
     }, 0);
   };
 
+  renderNumberPanel = () => {
+    const viewData = [
+      ["1", "2", "3"],
+      ["4", "5", "6"],
+      ["7", "8", "9"],
+      ["0", "00", "."]
+    ];
+    return (
+      <div className="InputButtonPanel-Number">
+        {_.map(viewData, (row, i) => {
+          return (
+            <div className="InputButtonPanel-Row" key={i}>
+              {_.map(row, (cell, j) => {
+                return (
+                  <div className="InputButtonPanel-Cell" key={j}>
+                    <InnerButton onMouseDown={this.handleMouseDown} type={cell}>
+                      {cell}
+                    </InnerButton>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   render() {
     const { showOk } = this.props;
     return (
@@ -136,78 +166,7 @@ export default class InputButtonPanel extends Component {
         onMouseDown={function(event) {
           event.preventDefault();
         }}>
-        <div className="InputButtonPanel-Number">
-          <div className="InputButtonPanel-Row">
-            <div className="InputButtonPanel-Cell">
-              <InnerButton  onMouseDown={this.handleMouseDown} type="1">
-                1
-              </InnerButton>
-            </div>
-
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type="2">
-                2
-              </InnerButton>
-            </div>
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type="3">
-                3
-              </InnerButton>
-            </div>
-          </div>
-          <div className="InputButtonPanel-Row">
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type="4">
-                4
-              </InnerButton>
-            </div>
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type="5">
-                5
-              </InnerButton>
-            </div>
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type="6">
-                6
-              </InnerButton>
-            </div>
-          </div>
-          <div className="InputButtonPanel-Row">
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type="7">
-                7
-              </InnerButton>
-            </div>
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type="8">
-                8
-              </InnerButton>
-            </div>
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type="9">
-                9
-              </InnerButton>
-            </div>
-          </div>
-          <div className="InputButtonPanel-Row">
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type="0">
-                0
-              </InnerButton>
-            </div>
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type="00">
-                00
-              </InnerButton>
-            </div>
-            <div className="InputButtonPanel-Cell">
-              <InnerButton onMouseDown={this.handleMouseDown} type=".">
-                .
-              </InnerButton>
-            </div>
-          </div>
-        </div>
-
+        {this.renderNumberPanel()}
         <div
           className={classnames("InputButtonPanel-Operator", {
             "InputButtonPanel-hasSure": showOk
@@ -273,7 +232,7 @@ export class InputButtonPanelExample extends Component {
           onChange={this.onChange}
           //showOk
           //onOk={this.onOk}
-          >
+        >
           <div>
             <span>当前积分：</span>
             <span>{value}</span>
