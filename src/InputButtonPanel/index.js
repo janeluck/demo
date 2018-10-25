@@ -167,9 +167,7 @@ export default class InputButtonPanel extends Component {
         }}>
         {this.renderNumberPanel()}
         <div
-          className={classnames("InputButtonPanel-Operator", {
-            "InputButtonPanel-hasSure": showOk
-          })}>
+          className="InputButtonPanel-Operator">
           <div>
             <InnerButton
               className="InputButtonPanel-Back"
@@ -178,21 +176,27 @@ export default class InputButtonPanel extends Component {
               <SvgIcon type="deleteone" />
             </InnerButton>
           </div>
-          <div>
-            <InnerButton
-              className="InputButtonPanel-Clear"
-              onMouseDown={this.handleMouseDown}
-              type="clear">
-              <SvgIcon type="deleteall" />
-            </InnerButton>
-          </div>
-          {showOk && (
-            <div className="InputButtonPanel-Sure">
-              <InnerButton onMouseDown={this.handleOkDown} type="sure">
-                确定
+
+          <div
+            className={classnames({
+              "InputButtonPanel-hasSure": showOk
+            })}>
+            <div>
+              <InnerButton
+                className="InputButtonPanel-Clear"
+                onMouseDown={this.handleMouseDown}
+                type="clear">
+                <SvgIcon type="deleteall" />
               </InnerButton>
             </div>
-          )}
+            {showOk && (
+              <div className="InputButtonPanel-Sure">
+                <InnerButton onMouseDown={this.handleOkDown} type="sure">
+                  确定
+                </InnerButton>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     );
@@ -229,7 +233,7 @@ export class InputButtonPanelExample extends Component {
         <InputButtonPanel
           value={this.props.value}
           onChange={this.onChange}
-          //showOk
+          showOk
           //onOk={this.onOk}
         >
           <div>
