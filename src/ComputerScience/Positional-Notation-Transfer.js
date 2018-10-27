@@ -17,24 +17,24 @@ function transferFromTen(str, base) {
     result = result.map(function(item) {
       switch (item) {
         case 10:
-          return 'A';
+          return "A";
         case 11:
-          return 'B';
+          return "B";
         case 12:
-          return 'C';
+          return "C";
         case 13:
-          return 'D';
+          return "D";
         case 14:
-          return 'E';
+          return "E";
         case 15:
-          return 'F';
+          return "F";
         default:
           return item;
       }
     });
   }
 
-  return result.reverse().join('');
+  return result.reverse().join("");
 }
 
 // 二进制，八进制，十六进制转十进制
@@ -42,21 +42,21 @@ function transferFromTen(str, base) {
 
 function transferToTen(str, origin) {
   origin = Number(origin) || 2;
-  let result = str.split('');
+  let result = str.split("");
   if (origin === 16) {
     result = result.map(function(item) {
       switch (item) {
-        case 'A':
+        case "A":
           return 10;
-        case 'B':
+        case "B":
           return 11;
-        case 'C':
+        case "C":
           return 12;
-        case 'D':
+        case "D":
           return 13;
-        case 'E':
+        case "E":
           return 14;
-        case 'F':
+        case "F":
           return 15;
         default:
           return item;
@@ -76,62 +76,62 @@ function transferToTen(str, origin) {
 // 因为2的三次方是8，2的4次方是16
 
 const twoToEight = {
-  '000': '0',
-  '001': '1',
-  '010': '2',
-  '011': '3',
-  '100': '4',
-  '101': '5',
-  '110': '6',
-  '111': '7'
+  "000": "0",
+  "001": "1",
+  "010": "2",
+  "011": "3",
+  "100": "4",
+  "101": "5",
+  "110": "6",
+  "111": "7"
 };
 
 const twoToSixteen = {
-  '0000': '0',
-  '0001': '1',
-  '0010': '2',
-  '0011': '3',
-  '0100': '4',
-  '0101': '5',
-  '0110': '6',
-  '0111': '7',
-  '1000': '8',
-  '1001': '9',
-  '1010': 'A',
-  '1011': 'B',
-  '1100': 'C',
-  '1101': 'D',
-  '1110': 'E',
-  '1111': 'F'
+  "0000": "0",
+  "0001": "1",
+  "0010": "2",
+  "0011": "3",
+  "0100": "4",
+  "0101": "5",
+  "0110": "6",
+  "0111": "7",
+  "1000": "8",
+  "1001": "9",
+  "1010": "A",
+  "1011": "B",
+  "1100": "C",
+  "1101": "D",
+  "1110": "E",
+  "1111": "F"
 };
 const eightToTwo = {
-  '0': '000',
-  '1': '001',
-  '2': '010',
-  '3': '011',
-  '4': '100',
-  '5': '101',
-  '6': '110',
-  '7': '111'
+  "0": "000",
+  "1": "001",
+  "2": "010",
+  "3": "011",
+  "4": "100",
+  "5": "101",
+  "6": "110",
+  "7": "111"
 };
 
 const sixteenToTwo = {
-  '0': '0000',
-  '1': '0001',
-  '2': '0010',
-  '3': '0011',
-  '4': '0100',
-  '5': '0101',
-  '6': '0110',
-  '7': '0111',
-  '8': '1000',
-  '9': '1001',
-  A: '1010',
-  B: '1011',
-  C: '1100',
-  D: '1101',
-  E: '1110',
-  F: '1111'
+  "0": "0000",
+  "1": "0001",
+  "2": "0010",
+  "3": "0011",
+  "4": "0100",
+  "5": "0101",
+  "6": "0110",
+  "7": "0111",
+  "8": "1000",
+  "9": "1001",
+  A: "1010",
+  B: "1011",
+  C: "1100",
+  D: "1101",
+  E: "1110",
+  F: "1111"
 };
 
 function transferFromTwo(str, base) {
@@ -142,7 +142,7 @@ function transferFromTwo(str, base) {
   }
 
   let finalStr =
-    '0'.repeat(str.length % i === 0 ? 0 : i - (str.length % i)) + '' + str;
+    "0".repeat(str.length % i === 0 ? 0 : i - (str.length % i)) + "" + str;
 
   /*  const regExp = new RegExp('(\\d{' + i + '})+$', 'g');
   return (finalStr = finalStr.replace(regExp, function(replaced) {
@@ -150,15 +150,15 @@ function transferFromTwo(str, base) {
   })); */
 
   return finalStr
-    .split('')
+    .split("")
     .map(function(item, index) {
       return index % i === 0
         ? (i === 3 ? twoToEight : twoToSixteen)[
             finalStr.slice(index, index + i)
           ]
-        : '';
+        : "";
     })
-    .join('');
+    .join("");
 }
 
 // 二进制转八进制: 三位转一位
@@ -172,24 +172,20 @@ function transferToTwo(str, origin) {
   }
 
   return str
-    .split('')
+    .split("")
     .map(function(item) {
       return (i === 3 ? eightToTwo : sixteenToTwo)[item];
     })
-    .join('')
-    .replace(/^0+/, '');
+    .join("")
+    .replace(/^0+/, "");
 }
-
-
-
-
 
 // 八进制转十六进制
 
 // 先转二进制再转十六进制
 
 console.log(transferFromTen(1000, 16));
-console.log(transferToTen('1010', 2));
-console.log(transferToTen('3E7', 16));
-console.log(transferFromTwo('111111010', 16));
-console.log(transferToTwo('1FA', 16));
+console.log(transferToTen("1010", 2));
+console.log(transferToTen("3E7", 16));
+console.log(transferFromTwo("111111010", 16));
+console.log(transferToTwo("1FA", 16));
