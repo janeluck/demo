@@ -4,35 +4,19 @@
 // 十进制转二进制，八进制，十六进制
 // 被除求余一直到0，被除的次数是`位`的位置，每次的余数是`位`上的数
 
-function transferFromTen(str, base) {
+function baseConverter(decNumber, base) {
   base = Number(base) || 2;
+  const digits = "0123456789ABCDEF";
   let result = [];
 
-  while (str > 0) {
-    result.push(str % base);
-    str = Math.floor(str / base);
+  while (decNumber > 0) {
+    result.push(decNumber % base);
+    decNumber = Math.floor(decNumber / base);
   }
 
-  if (base === 16) {
-    result = result.map(function(item) {
-      switch (item) {
-        case 10:
-          return "A";
-        case 11:
-          return "B";
-        case 12:
-          return "C";
-        case 13:
-          return "D";
-        case 14:
-          return "E";
-        case 15:
-          return "F";
-        default:
-          return item;
-      }
-    });
-  }
+  result = result.map(function(item) {
+    return digits[item];
+  });
 
   return result.reverse().join("");
 }
@@ -183,7 +167,7 @@ function transferToTwo(str, origin) {
 
 // 先转二进制再转十六进制
 
-console.log(transferFromTen(1000, 16));
+console.log(baseConverter(1000, 16));
 console.log(transferToTen("1010", 2));
 console.log(transferToTen("3E7", 16));
 console.log(transferFromTwo("111111010", 16));
