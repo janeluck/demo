@@ -1,21 +1,25 @@
-// 栈
-// 后进先出
-const Stack = (function() {
+// 队列
+// 先进先出
+// todo 优先队列
+
+const Queue = (function() {
   const items = new WeakMap();
-  class Stack {
+  class Queue {
     constructor() {
       this[items] = [];
     }
-    push(item) {
+
+    // 进队列
+    enqueue(item) {
       return this.push(item);
     }
-    pop() {
+
+    // 出队列
+    dequeue() {
       // todo 溢出控制
-      return this.pop();
+      return this.shift();
     }
-    peek() {
-      return this[items][this.size() - 1];
-    }
+
     size() {
       return this[items].length;
     }
@@ -27,5 +31,5 @@ const Stack = (function() {
     }
   }
 
-  return Stack;
+  return Queue;
 })();
