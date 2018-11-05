@@ -27,6 +27,17 @@ const LinkedList = (function() {
       }
     }
 
+
+    toString() {
+      let node = this.head,
+        str = "";
+      while (node) {
+        str += node.element;
+        node = node.next;
+      }
+      return str;
+    }
+    
     insert(position, element) {
       const node = new Node(element);
 
