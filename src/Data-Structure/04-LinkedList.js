@@ -37,7 +37,7 @@ const LinkedList = (function() {
       }
       return str;
     }
-    
+
     insert(position, element) {
       const node = new Node(element);
 
@@ -87,3 +87,4 @@ const LinkedList = (function() {
 
   return LinkedList;
 })();
+module.exports =  LinkedList
