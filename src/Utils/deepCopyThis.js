@@ -20,12 +20,12 @@ function deepCopyThis() {
     const { key, data, parent } = loopList.pop();
     let res = parent
     if (key !== undefined) {
-      res = parent[key] = {};
+      res = parent[key] = Object.prototype.toString.call(data) === '[object Object]' ? {} : [];
     }
 
     for (let name in data) {
       if(data.hasOwnProperty(name)){
-        if (!isObject(data[name])) {
+        if (typeof data[name] !== 'object') {
             res[name] = data[name];
           } else {
             loopList.push({
@@ -42,10 +42,8 @@ function deepCopyThis() {
   return root
 }
 
-function isObject(obj) {
-  return Object.prototype.toString.call(obj) === "[object Object]";
-}
 
-const o = {name: 'j', age: {pro: 3}}
+
+const o = {name: 'j', age: {pro: 3}, bei: [2,3,6,4,{na: 'xxx'}]}
 
 console.log(deepCopyThis.call(o))
