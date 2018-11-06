@@ -1,9 +1,13 @@
+
+
+
+
 function deepCopyThis() {
   const that = this;
 
  
-
-  const root = {},
+  
+  const root = Object.prototype.toString.call(that) === '[object Object]' ? {} : [],
    //todo  循环引用
     uids = [];
 
@@ -47,3 +51,5 @@ function deepCopyThis() {
 const o = {name: 'j', age: {pro: 3}, bei: [2,3,6,4,{na: 'xxx'}]}
 
 console.log(deepCopyThis.call(o))
+
+
