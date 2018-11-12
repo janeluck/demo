@@ -120,11 +120,11 @@ export default class InputButtonPanel extends Component {
     setTimeout(() => {
       const currentV = activeEl.value;
       // 如果结果被再处理，光标定位到末尾
-      if (typeof currentV !== "undefined" && currentV != result) {
+      /* if (typeof currentV !== "undefined" && currentV != result) {
         activeEl.setSelectionRange(99999, 99999);
       } else {
         activeEl.setSelectionRange(caretPosition, caretPosition);
-      }
+      } */
     }, 0);
   };
 
