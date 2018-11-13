@@ -1,0 +1,15 @@
+.demo-layout0-leftNav{
+    position: absolute;
+    width: 200px;
+    background-color: #eee;
+    height: 100%;
+    overflow: auto;
+  
+}
+
+
+.demo-layout0-rightContent{
+    position: relative;
+    left: 200px;
+    padding:10px; 
+}
