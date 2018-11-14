@@ -4,6 +4,7 @@ import { InputButtonPanelExample } from "./InputButtonPanel";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import _ from "lodash";
 import routeMap from "./route.js";
+import LayoutTwoColumns from "./Layout/layoutTwoColumns";
 require("./uploads/alimama.svg.js");
 class App extends Component {
   render() {
@@ -18,10 +19,14 @@ class App extends Component {
               <li>
                 <Link to="/inputButton">inputButton</Link>
               </li>
+              <li>
+                <Link to="/layoutTwoColumns">layoutTwoColumns</Link>
+              </li>
             </ul>
           </LeftNav>
           <RightContent>
             <Route path="/inputButton" component={InputButtonPanelExample} />
+            <Route path="/layoutTwoColumns" component={LayoutTwoColumns} />
         
           </RightContent>
     

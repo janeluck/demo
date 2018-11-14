@@ -1,0 +1,13 @@
+.demo-layoutTwoColumns {
+    overflow: auto
+}
+
+.demo-layoutTwoColumns-left {
+  float: left;
+  width: 200px;
+
+}
+.demo-layoutTwoColumns-right {
+    border: 1px solid red;
+    overflow: auto
+}
