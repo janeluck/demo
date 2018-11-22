@@ -1,8 +1,8 @@
-.demo-flexbox-parent{
+.demo-flexbox-center-parent{
     display: flex;
-    align-items: center;
+    justify-content:center;
 }
-.demo-flexbox-conten{
+.demo-flexbox-center-content{
     width: 200px;
     height: 200px;
     border: 1px solid red;
