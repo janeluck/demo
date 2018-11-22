@@ -3,11 +3,12 @@ import { LeftNav, RightContent } from "./Layout/layout0";
 import { InputButtonPanelExample } from "./InputButtonPanel";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import _ from "lodash";
-import routeMap from "./route.js";
+import routeMap from "./route";
 import LayoutTwoColumns from "./Layout/layoutTwoColumns";
 import LayoutCenter from "./Layout/layoutCenter";
 import LayoutVerticalCenter from "./Layout/layoutVerticalCenter";
-require("./uploads/alimama.svg.js");
+import FlexboxCenter from "./Flexbox/center";
+require("./uploads/alimama.svg");
 class App extends Component {
   render() {
     return (
@@ -35,12 +36,15 @@ class App extends Component {
           <RightContent>
             
             <Route path="/inputButton" component={InputButtonPanelExample} />
+            <Route path="/layout/flexboxCenter" component={FlexboxCenter} />
         {/*     <Route path="/layoutTwoColumns" component={LayoutTwoColumns} />
             <Route path="/layoutCenter" component={LayoutCenter} />
             <Route
               path="/layoutVerticalCenter"
               component={LayoutVerticalCenter}
             /> */}
+
+
           </RightContent>
         </div>
       </Router>
