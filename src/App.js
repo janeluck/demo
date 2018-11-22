@@ -8,6 +8,7 @@ import LayoutTwoColumns from "./Layout/layoutTwoColumns";
 import LayoutCenter from "./Layout/layoutCenter";
 import LayoutVerticalCenter from "./Layout/layoutVerticalCenter";
 import FlexboxCenter from "./Flexbox/center";
+import FlexboxVerticalCenter from "./Flexbox/verticalCenter";
 require("./uploads/alimama.svg");
 class App extends Component {
   render() {
@@ -37,6 +38,7 @@ class App extends Component {
             
             <Route path="/inputButton" component={InputButtonPanelExample} />
             <Route path="/layout/flexboxCenter" component={FlexboxCenter} />
+            <Route path="/layout/flexboxVerticalCenter" component={FlexboxVerticalCenter} />
         {/*     <Route path="/layoutTwoColumns" component={LayoutTwoColumns} />
             <Route path="/layoutCenter" component={LayoutCenter} />
             <Route
