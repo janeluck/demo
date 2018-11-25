@@ -120,7 +120,7 @@ function sort0(leftArr, rightArr) {
 function quickSort(arr) {
   if (arr.length <= 1) return arr.slice();
 
-  const  centerItem = arr.shift(),
+  const centerItem = arr.shift(),
     leftArr = [],
     rightArr = [];
 
@@ -132,10 +132,8 @@ function quickSort(arr) {
     }
   }
 
-
-  return quickSort(leftArr).concat(centerItem).concat(quickSort(rightArr));
+  return quickSort(leftArr).concat(centerItem, quickSort(rightArr));
 }
-
 
 console.log(bubbleSort(arr));
 console.log(insertSort(arr));
