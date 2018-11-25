@@ -79,7 +79,7 @@ function selectSort(arr) {
 
 // 归并排序
 // O(nlogn)
-// 均分两组，分治合之
+// 均分两组，二分分治后而合之
 function mergeSort(arr) {
   if (arr.length <= 1) return arr.slice();
 
@@ -88,10 +88,10 @@ function mergeSort(arr) {
   const leftArr = mergeSort(arr.slice(0, middle));
   const rightArr = mergeSort(arr.slice(middle));
 
-  return sort(leftArr, rightArr);
+  return sort0(leftArr, rightArr);
 }
 
-function sort(leftArr, rightArr) {
+function sort0(leftArr, rightArr) {
   const result = [];
 
   while (leftArr.length && rightArr.length) {
@@ -103,7 +103,7 @@ function sort(leftArr, rightArr) {
   }
 
   if (leftArr.length) {
-     result.push(...leftArr);
+    result.push(...leftArr);
   }
 
   if (rightArr.length) {
@@ -113,13 +113,32 @@ function sort(leftArr, rightArr) {
   return result;
 }
 
+// 快速排序
+// O(nlogn)
+// 挑选pivot，左中右分为三段，后而联之
+
+function quickSort(arr) {
+  if (arr.length <= 1) return arr.slice();
+
+  const  centerItem = arr.shift(),
+    leftArr = [],
+    rightArr = [];
+
+  while (arr.length) {
+    if (arr[0] < centerItem) {
+      leftArr.push(arr.shift());
+    } else {
+      rightArr.push(arr.shift());
+    }
+  }
 
 
-
-
+  return quickSort(leftArr).concat(centerItem).concat(quickSort(rightArr));
+}
 
 
 console.log(bubbleSort(arr));
 console.log(insertSort(arr));
 console.log(selectSort(arr));
 console.log(mergeSort(arr));
+console.log(quickSort(arr));
