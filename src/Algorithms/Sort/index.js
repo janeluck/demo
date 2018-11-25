@@ -1,6 +1,6 @@
 const arr = [2, 3, 4, 8, 6, 1, 5, 8, 5, 3, 7];
 
-// 冒泡
+// 冒泡排序
 
 function bubbleSort(arr) {
   const result = arr.slice();
@@ -17,7 +17,7 @@ function bubbleSort(arr) {
         result[j] = result[j + 1];
         result[j + 1] = rest;
         flag = true;
-      } 
+      }
     }
 
     if (!flag) {
@@ -28,4 +28,32 @@ function bubbleSort(arr) {
   return result;
 }
 
+// 插入排序
+
+function insertSort(arr) {
+  const result = arr.slice();
+  if (result.length <= 1) return result;
+
+  for (let i = 0; i < result.length; i++) {
+    for (let j = i + 1; j > 0; j--) {
+      let flag = false  
+      if (result[j] < result[j - 1]) {
+        const rest = result[j];
+        result[j] = result[j - 1];
+        result[j - 1] = rest;
+        flag = true
+      }
+
+      if (!flag){
+          break
+      }
+
+    }
+  }
+
+
+  return result
+}
+
 console.log(bubbleSort(arr));
+console.log(insertSort(arr));
