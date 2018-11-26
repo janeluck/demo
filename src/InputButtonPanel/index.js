@@ -13,7 +13,7 @@ class InnerButton extends PureComponent {
   static propTypes = {
     type: PropTypes.string,
     onMouseDown: PropTypes.func,
-    className: PropTypes.string
+    className: PropTypes.stringp
   };
   static defaultProps = {
     onMouseDown: _.identity
