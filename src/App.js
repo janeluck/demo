@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { LeftNav, RightContent } from "./Layout/layout0";
 import { InputButtonPanelExample } from "./InputButtonPanel";
+import DR from "./DR";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import _ from "lodash";
 import routeMap from "./route";
@@ -23,7 +24,11 @@ class App extends Component {
               <li>
                 <Link to="/inputButton">inputButton</Link>
               </li>
-        {/*       <li>
+               {/* 
+              <li>
+                <Link to="/dr">dr</Link>
+              </li>
+                   <li>
                 <Link to="/layoutTwoColumns">layoutTwoColumns</Link>
               </li>
               <li>
@@ -35,18 +40,19 @@ class App extends Component {
             </ul>
           </LeftNav>
           <RightContent>
-            
             <Route path="/inputButton" component={InputButtonPanelExample} />
+            <Route path="/dr" component={DR} />
             <Route path="/layout/flexboxCenter" component={FlexboxCenter} />
-            <Route path="/layout/flexboxVerticalCenter" component={FlexboxVerticalCenter} />
-        {/*     <Route path="/layoutTwoColumns" component={LayoutTwoColumns} />
+            <Route
+              path="/layout/flexboxVerticalCenter"
+              component={FlexboxVerticalCenter}
+            />
+            {/*     <Route path="/layoutTwoColumns" component={LayoutTwoColumns} />
             <Route path="/layoutCenter" component={LayoutCenter} />
             <Route
               path="/layoutVerticalCenter"
               component={LayoutVerticalCenter}
             /> */}
-
-
           </RightContent>
         </div>
       </Router>
