@@ -1,0 +1,16 @@
+.demo-layout-FullHeight-a{
+    width: 100px;
+    height: 100px;
+    background: red
+
+}
+
+
+.demo-layout-FullHeight-b{
+    position: absolute;
+    height: 100%;
+    background: green;
+    width: 100px;
+    top: 100px;
+    padding-top: 100px;
+}

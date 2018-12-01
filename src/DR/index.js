@@ -33,11 +33,28 @@ class DR extends Component {
      console.log(<A text='react element a'/>)
   }
 
+  shouldComponentUpdate(){
+      console.log('shouldComponentUpdate')
+      return true
+  }
+
+  componentWillUpdate(){
+    console.log('componentWillUpdate')
+  }
   render() {
- 
+    
     return (
       <div>
+       <p>{this.state.value}</p>   
        <A  text='inner a'/>
+       <button onClick={()=>{
+           this.forceUpdate()
+       }}>forceUpdate</button>
+       <button onClick={()=>{
+           this.setState({
+               value: Math.random()
+           })
+       }}>normal update</button>
       </div>
     );
   }

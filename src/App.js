@@ -8,6 +8,7 @@ import routeMap from "./route";
 import LayoutTwoColumns from "./Layout/layoutTwoColumns";
 import LayoutCenter from "./Layout/layoutCenter";
 import LayoutVerticalCenter from "./Layout/layoutVerticalCenter";
+import LayoutFullHeight from "./Layout/layoutFullHeight";
 import FlexboxCenter from "./Flexbox/center";
 import FlexboxVerticalCenter from "./Flexbox/verticalCenter";
 require("./uploads/alimama.svg");
@@ -43,6 +44,7 @@ class App extends Component {
             <Route path="/inputButton" component={InputButtonPanelExample} />
             <Route path="/dr" component={DR} />
             <Route path="/layout/flexboxCenter" component={FlexboxCenter} />
+            <Route path="/layout/layoutFullHeight" component={LayoutFullHeight} />
             <Route
               path="/layout/flexboxVerticalCenter"
               component={FlexboxVerticalCenter}
