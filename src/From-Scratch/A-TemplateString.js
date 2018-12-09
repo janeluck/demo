@@ -16,4 +16,8 @@ function replace(str) {
   });
 }
 
-console.log(replace("name: ${name}, year: ${year}, ${a + b}"));
+function plus(n){
+  return n + n
+}
+
+console.log(replace("name: ${name}, year: ${year}, ${a + b}, ${plus(9)}"));
