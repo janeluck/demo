@@ -1,9 +1,9 @@
 /**
  * Valid Parentheses
- * @param {string} s
+ * @param {string} 
  * @return {boolean}
  */
-var validParentheses = function(s) {
+export default function validParentheses (s) {
   const paren_map = {
       "{": "}",
       "[": "]",

@@ -167,8 +167,13 @@ function transferToTwo(str, origin) {
 
 // 先转二进制再转十六进制
 
-console.log(baseConverter(1000, 16));
-console.log(transferToTen("1010", 2));
-console.log(transferToTen("3E7", 16));
-console.log(transferFromTwo("111111010", 16));
-console.log(transferToTwo("1FA", 16));
+
+
+export {
+  baseConverter,
+  transferToTen,
+  transferFromTwo,
+  transferToTwo
+}
+
+
