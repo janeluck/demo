@@ -1,4 +1,3 @@
-const arr = [2, 3, 4, 8, 6, 1, 5, 8, 5, 3, 7];
 
 // 冒泡排序
 // O(n^2)
@@ -134,12 +133,7 @@ function quickSort(arr) {
 
   return quickSort(leftArr).concat(centerItem, quickSort(rightArr));
 }
-/* 
-console.log(bubbleSort(arr));
-console.log(insertSort(arr));
-console.log(selectSort(arr));
-console.log(mergeSort(arr));
-console.log(quickSort(arr)); */
+
 export {
   bubbleSort,
   insertSort,
