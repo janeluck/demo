@@ -134,9 +134,16 @@ function quickSort(arr) {
 
   return quickSort(leftArr).concat(centerItem, quickSort(rightArr));
 }
-
+/* 
 console.log(bubbleSort(arr));
 console.log(insertSort(arr));
 console.log(selectSort(arr));
 console.log(mergeSort(arr));
-console.log(quickSort(arr));
+console.log(quickSort(arr)); */
+export {
+  bubbleSort,
+  insertSort,
+  selectSort,
+  mergeSort,
+  quickSort
+}
